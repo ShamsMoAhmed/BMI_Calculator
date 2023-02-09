@@ -21,7 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Color.fromARGB(20, 33, 170, 243),
         appBar: AppBar(
           backgroundColor: Color.fromARGB(20, 33, 170, 243),
-          title: Center(child: Text("BMI Calculator")),
+          title: Center(
+              child: Text(
+            "BMI Calculator",
+            style: TextStyle(fontSize: 23),
+          )),
         ),
         body: SafeArea(
           child: Padding(
@@ -33,9 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      color: calculate.gender == "m"
-                          ? Colors.white12
-                          : Colors.white24,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: calculate.gender == "m"
+                            ? Colors.white12
+                            : Colors.white24,
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(17.0),
                         child: OutlinedButton(
@@ -55,9 +62,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  "   male",
+                                  "   MALE",
                                   style: TextStyle(
-                                      fontSize: 25, color: Colors.grey),
+                                      fontSize: 21, color: Colors.grey),
                                 ),
                               )
                             ],
@@ -66,9 +73,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      color: calculate.gender == "f"
-                          ? Colors.white12
-                          : Colors.white24,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: calculate.gender == "f"
+                            ? Colors.white12
+                            : Colors.white24,
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(17.0),
                         child: OutlinedButton(
@@ -88,9 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  "female",
+                                  "FEMALE",
                                   style: TextStyle(
-                                      fontSize: 25, color: Colors.grey),
+                                      fontSize: 21, color: Colors.grey),
                                 ),
                               )
                             ],
@@ -104,7 +114,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 40,
                 ),
                 Container(
-                  color: Colors.white24,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.white24,
+                  ),
                   child: Column(
                     children: [
                       Padding(
@@ -115,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Text(
-                        calculate.height.toString() + "  cm",
+                        calculate.height.toStringAsFixed(0) + " cm",
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -143,7 +156,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Container(
-                      color: Colors.white24,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.white24,
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(17.0),
                         child: Column(
@@ -156,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Padding(
                               padding: const EdgeInsets.all(15.0),
                               child: Text(
-                                calculate.weight.toString(),
+                                calculate.weight.toStringAsFixed(0),
                                 style: TextStyle(
                                     fontSize: 30,
                                     color: Colors.white,
@@ -200,13 +216,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      color: Colors.white24,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.white24,
+                      ),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
                           children: [
                             Text(
-                              "Age",
+                              "AGE",
                               style:
                                   TextStyle(fontSize: 20, color: Colors.grey),
                             ),
@@ -261,7 +280,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
-                    color: Colors.red,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.red,
+                    ),
                     child: TextButton(
                       onPressed: () {
                         Navigator.push(
