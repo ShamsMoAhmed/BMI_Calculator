@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bmi_calculator/models/calculate_model.dart';
+import 'package:bmi_calculator/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'result_screen.dart';
@@ -36,74 +37,83 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: calculate.gender == "m"
-                            ? Colors.white12
-                            : Colors.white24,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(17.0),
-                        child: OutlinedButton(
-                          onPressed: () {
-                            setState(() {
-                              calculate.gender = "m";
-                            });
-                          },
-                          child: Column(
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Icon(
-                                Icons.male_outlined,
-                                size: 75,
-                                color: Colors.white,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "   MALE",
-                                  style: TextStyle(
-                                      fontSize: 21, color: Colors.grey),
+                    Expanded(
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: calculate.gender == "m"
+                              ? Colors.white12
+                              : Colors.white24,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(17.0),
+                          child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                calculate.gender = "m";
+                              });
+                            },
+                            child: Column(
+                              // ignore: prefer_const_literals_to_create_immutables
+                              children: [
+                                Icon(
+                                  Icons.male_outlined,
+                                  size: 75,
+                                  color: Colors.white,
                                 ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "MALE",
+                                    style: TextStyle(
+                                        fontSize: 21, color: Colors.grey),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: calculate.gender == "f"
-                            ? Colors.white12
-                            : Colors.white24,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(17.0),
-                        child: OutlinedButton(
-                          onPressed: () {
-                            setState(() {
-                              calculate.gender = "f";
-                            });
-                          },
-                          child: Column(
-                            // ignore: prefer_const_literals_to_create_immutables
-                            children: [
-                              Icon(
-                                Icons.female_outlined,
-                                size: 75,
-                                color: Colors.white,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  "FEMALE",
-                                  style: TextStyle(
-                                      fontSize: 21, color: Colors.grey),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Expanded(
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: calculate.gender == "f"
+                              ? Colors.white12
+                              : Colors.white24,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(17.0),
+                          child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                calculate.gender = "f";
+                              });
+                            },
+                            child: Column(
+                              // ignore: prefer_const_literals_to_create_immutables
+                              children: [
+                                Icon(
+                                  Icons.female_outlined,
+                                  size: 75,
+                                  color: Colors.white,
                                 ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "FEMALE",
+                                    style: TextStyle(
+                                        fontSize: 21, color: Colors.grey),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -181,8 +191,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Row(
                               children: [
-                                TextButton(
-                                  onPressed: () {
+                                CircleButtonWidget(
+                                  onTap: () {
                                     setState(() {
                                       calculate.weight -= 1;
                                     });
@@ -195,8 +205,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                         color: Colors.white),
                                   ),
                                 ),
-                                TextButton(
-                                  onPressed: () {
+                                SizedBox(
+                                  width: 30,
+                                ),
+                                CircleButtonWidget(
+                                  onTap: () {
                                     setState(() {
                                       calculate.weight += 1;
                                     });
@@ -241,8 +254,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Row(
                               children: [
-                                TextButton(
-                                  onPressed: () {
+                                CircleButtonWidget(
+                                  onTap: () {
                                     setState(() {
                                       calculate.age -= 1;
                                     });
@@ -255,8 +268,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                         color: Colors.white),
                                   ),
                                 ),
-                                TextButton(
-                                  onPressed: () {
+                                SizedBox(
+                                  width: 30,
+                                ),
+                                CircleButtonWidget(
+                                  onTap: () {
                                     setState(() {
                                       calculate.age += 1;
                                     });
