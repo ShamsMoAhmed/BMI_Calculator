@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bmi_calculator/controllers/app_setting.dart';
 import 'package:bmi_calculator/models/calculate_model.dart';
 import 'package:bmi_calculator/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'result_screen.dart';
 
@@ -18,8 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final setting = Provider.of<AppSettingController>(context);
     return Scaffold(
-        backgroundColor: Color.fromARGB(20, 33, 170, 243),
+        backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
           backgroundColor: Color.fromARGB(20, 33, 170, 243),
           title: Center(
@@ -31,8 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            child: ListView(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -60,14 +62,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Icon(
                                   Icons.male_outlined,
                                   size: 75,
-                                  color: Colors.white,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     "MALE",
-                                    style: TextStyle(
-                                        fontSize: 21, color: Colors.grey),
                                   ),
                                 )
                               ],
@@ -102,14 +101,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Icon(
                                   Icons.female_outlined,
                                   size: 75,
-                                  color: Colors.white,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     "FEMALE",
-                                    style: TextStyle(
-                                        fontSize: 21, color: Colors.grey),
+                                    //   style: TextStyle(
+                                    //       fontSize: 21, color: Colors.grey),
                                   ),
                                 )
                               ],
@@ -134,15 +132,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(15.0),
                         child: Text(
                           "HEIGHT",
-                          style: TextStyle(fontSize: 23, color: Colors.grey),
+                          style: Theme.of(context).textTheme.bodyText1,
                         ),
                       ),
                       Text(
                         calculate.height.toStringAsFixed(0) + " cm",
                         style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                          fontSize: 30,
+                        ),
                       ),
                       Slider(
                           inactiveColor: Colors.grey,
@@ -176,17 +173,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             Text(
                               "WEIGHT",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.grey),
                             ),
                             Padding(
                               padding: const EdgeInsets.all(15.0),
                               child: Text(
                                 calculate.weight.toStringAsFixed(0),
                                 style: TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                                    fontSize: 30, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Row(
@@ -237,19 +230,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
                           children: [
-                            Text(
-                              "AGE",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.grey),
-                            ),
+                            Text("AGE"),
                             Padding(
                               padding: const EdgeInsets.all(15.0),
                               child: Text(
                                 calculate.age.toString(),
                                 style: TextStyle(
-                                    fontSize: 30,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
+                                    fontSize: 30, fontWeight: FontWeight.bold),
                               ),
                             ),
                             Row(
@@ -314,12 +301,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(15.0),
                         child: Text(
                           "                 CALCULATE                  ",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                          // style: Theme.of(context).textTheme.bodyText1,
                         ),
                       ),
                     ),
                   ),
-                )
+                ),
+                Switch(
+                    value: setting.isDarkMode,
+                    onChanged: (b) {
+                      setting.changeTheme();
+                    }),
               ],
             ),
           ),

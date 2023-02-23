@@ -16,7 +16,7 @@ class CircleButtonWidget extends StatelessWidget {
           height: 40,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
-            color: Colors.white.withOpacity(.5),
+            color: Theme.of(context).colorScheme.secondary,
           ),
           child: Center(child: child),
         ),
