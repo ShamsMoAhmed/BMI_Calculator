@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:bmi_calculator/home_screen.dart';
 import 'package:bmi_calculator/models/calculate_model.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +19,12 @@ class _ResultScreenState extends State<ResultScreen> {
       backgroundColor: Color.fromARGB(20, 33, 170, 243),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(20, 33, 170, 243),
-        title: Text("Result"),
+        title: Center(
+          child: Text(
+            "Result",
+            style: TextStyle(fontSize: 25),
+          ),
+        ),
       ),
       body: SafeArea(
         child: Padding(
@@ -29,12 +36,14 @@ class _ResultScreenState extends State<ResultScreen> {
                 child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    label: Text(
-                      widget.calculate.getText(),
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.green,
-                        fontWeight: FontWeight.bold,
+                    label: Center(
+                      child: Text(
+                        widget.calculate.getText(),
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.green,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),
@@ -44,12 +53,14 @@ class _ResultScreenState extends State<ResultScreen> {
                 child: TextField(
                     decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  label: Text(
-                    widget.calculate.result(),
-                    style: TextStyle(
-                        fontSize: 50,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
+                  label: Center(
+                    child: Text(
+                      widget.calculate.result(),
+                      style: TextStyle(
+                          fontSize: 50,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 )),
               ),
@@ -57,11 +68,13 @@ class _ResultScreenState extends State<ResultScreen> {
                 child: TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    label: Text(
-                      widget.calculate.getAdvice(),
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
+                    label: Center(
+                      child: Text(
+                        widget.calculate.getAdvice(),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -70,7 +83,10 @@ class _ResultScreenState extends State<ResultScreen> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Container(
-                  color: Colors.red,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.red,
+                  ),
                   child: TextButton(
                     onPressed: () {
                       Navigator.push(
@@ -80,9 +96,11 @@ class _ResultScreenState extends State<ResultScreen> {
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
-                      child: Text(
-                        "                 Re-CALCULATE                  ",
-                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      child: Center(
+                        child: Text(
+                          "RE_CALCULATE",
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
